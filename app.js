@@ -12,7 +12,7 @@ const app = express();
 
 //veritabanı bağlantısı
 
-mongoose.connect("mongodb+srv://faruktopsakal3:4ejlODiLwmneXDZm@cluster0.02g0izu.mongodb.net/?retryWrites=true&w=majority").then(console.log("başarıyla veritabanına bağlandı"));
+mongoose.connect(process.env.DATABASE).then(console.log("başarıyla veritabanına bağlandı"));
 
 //statik dosyalara erişim.
 app.use(express.static('public'))
@@ -31,4 +31,4 @@ app.all("*", (req,res)=>{
 
 
 //server
-app.listen("https://project-meal.vercel.app/", ()=>{console.log("çalışıyor")})
+app.listen(process.env.PORT, ()=>{console.log("çalışıyor")})

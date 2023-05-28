@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv'
 dotenv.config();
 
 let ingridients=[];
-let uri="https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
+let uri=process.THE_MEAL_URI;
 
 export async function getTheMeal (req,res){
      

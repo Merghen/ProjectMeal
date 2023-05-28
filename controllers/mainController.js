@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv' 
 
 dotenv.config()
-let uri="https://www.themealdb.com/api/json/v1/1/random.php";
+let uri=process.RANDOM_MEAL_URI;
     
 let meals=[];
 generateRandomMeal();
