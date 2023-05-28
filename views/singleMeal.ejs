@@ -1,0 +1,120 @@
+<%- include("layouts/header")       %>
+<nav class="navbar navbar-expand-lg navbar-dark singlePageNavbar">
+  <div class="container">
+    <a class="navbar-brand" href="/"><i class="fa-solid fa-utensils"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Anasayfa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Ozellikler</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Hakkında</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="topSection">
+    <div class="container" style="padding-top: 5%;">
+        <section class="tm-about tm-mb-80 tm-p-50 tm-bgcolor-2 tm-border-rounded">
+            <div class="tm-about-header tm-flex-center">
+               
+                <img class="card-image-Single" src="<%=data.strMealThumb %>" alt="" srcset="">
+    
+                <h3 style="margin-top: 20px;" ><%=data.strMeal %></h3>
+                
+            </div>
+            <div class="tm-about-text">
+              <h4 style="font-weight: bold; margin-bottom: 10px">Malzemeler</h4>
+                <ul >
+                  <% ingridients.forEach(function(ingridient){ %>
+                    <li>➛ <%= ingridient %></li>
+                  <% }) %>
+                  </ul>
+
+                <h4 style="font-weight: bold; margin-bottom: 10px; margin-top: 30px;">Tarifi :</h4>
+                <p class="tm-mb-40"><%=data.strInstructions %></p>
+                
+                <p class="tm-mb-0"></p>
+            </div>
+        </section>
+    </div>
+
+    <div class="commentSection">
+
+        <div class="container instractions ">
+
+            <h3 style="text-align: center; padding-top:  50px;" >Yorum Yap</h3>
+            
+            <form class = "Comment" action="/meals/<%=data.idMeal %>/comments" method="post">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">İsim</label>
+
+                    <input name="Username" type="text" class="form-control" id="Username" placeholder="İsim" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleFormControlInput2">Soyisim</label>
+                    <input name="Surname" type="text" class="form-control" id="Surname" placeholder="Soyisim" required>
+                  </div>
+                  
+                  
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Yorum Bölümü</label>
+                    <textarea name="Comment" class="form-control" id="comment" rows="5" placeholder="Yorum" required></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="submit"class="btn btn-primary mb-2 pd-5" style="margin-top: 10px;" value="yorum yap">
+                  </div>
+            </form>
+    
+        </div>
+
+        <h3 style="text-align: center; color:black;"> Yorumlar</h3>
+
+        <div class="CommentBox" id="div1">
+
+          <% comments.forEach(function(comment) { %>
+            <div class="everyComment">
+              <div class="resim">
+                  B
+                  </div>
+                  <div class="commentUsername">
+                    <small class="nickname">
+                      <%= comment.name %> <%= comment.surname %> 
+                   
+                    </small>
+                    <p class="commentText">
+                      <%= comment.comment %>
+                    </p>
+                  </div>
+            </div>
+          <% }); %> 
+          
+        </div>  
+        
+    </div>
+
+
+
+
+    
+
+</div>
+
+
+
+
+<script src="/main.js" defer></script>
+
+<%- include("layouts/footer")    %>
