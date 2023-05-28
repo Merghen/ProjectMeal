@@ -31,4 +31,4 @@ app.all("*", (req,res)=>{
 
 
 //server
-app.listen("https://food-project-eta.vercel.app/", ()=>{console.log("çalışıyor")})
+app.listen(3000, ()=>{console.log("çalışıyor")})
