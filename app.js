@@ -29,6 +29,6 @@ app.all("*", (req,res)=>{
     res.status(202).render("404")
 })
 
-
+const port=3000;
 //server
-app.listen(process.env.PORT, ()=>{console.log("çalışıyor")})
+app.listen(port, ()=>{console.log("çalışıyor")})
