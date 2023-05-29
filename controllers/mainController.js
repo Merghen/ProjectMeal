@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv' 
+import fetch from "node-fetch";
 
 dotenv.config()
 let uri=process.RANDOM_MEAL_URI;
