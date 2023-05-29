@@ -31,4 +31,4 @@ app.all("*", (req,res)=>{
 
 const port=3000;
 //server
-app.listen(port, ()=>{console.log("çalışıyor")})
+app.listen("https://projectmeal.onrender.com/" || port, ()=>{console.log("çalışıyor")})
